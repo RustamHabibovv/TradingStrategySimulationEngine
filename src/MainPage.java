@@ -366,14 +366,13 @@ public class MainPage extends JFrame implements  ActionListener {
             selectedStrategy = Strategies.getSelectedItem().toString();
             Start_date = startdatePicker.getDate();
             End_date = enddatePicker.getDate();
-
-           double budget = Double.parseDouble(budgettextfield.getText());
-           int leverage = Integer.parseInt(((String)leveragebox.getSelectedItem()));
-          double transaction_cost = Double.parseDouble(transaction_field.getText());
-          double risk_trade = Double.parseDouble(risk_field.getText());
-          double take_profit = Double.parseDouble(take_profit_textfield.getText());
-          double stop_loss = Double.parseDouble(stop_loss_textfield.getText());
-          double initialbudget = budget;
+            double budget = Double.parseDouble(budgettextfield.getText());
+            int leverage = Integer.parseInt(((String)leveragebox.getSelectedItem()));
+            double transaction_cost = Double.parseDouble(transaction_field.getText());
+            double risk_trade = Double.parseDouble(risk_field.getText());
+            double take_profit = Double.parseDouble(take_profit_textfield.getText());
+            double stop_loss = Double.parseDouble(stop_loss_textfield.getText());
+            double initialbudget = budget;
 
             Simulation simulation  = new Simulation(selectedStock,selectedStrategy,Start_date,End_date,budget,leverage,transaction_cost,risk_trade,take_profit,stop_loss);
     }
