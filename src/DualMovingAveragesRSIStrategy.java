@@ -1,25 +1,18 @@
 
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
 public class DualMovingAveragesRSIStrategy {
-
     public static boolean BuySignal(StockData stockData, LocalDate startDate){
-
     if(MaStrategy.BuySignal(stockData,startDate)&&RsiStrategy.BuySignal(stockData,startDate)){
         return true;
     }
     else{
         return false;
     }
-
     }
-
     public static boolean SellSignal(StockData stockData,LocalDate startDate){
-
         if(MaStrategy.SellSignal(stockData,startDate)&&RsiStrategy.SellSignal(stockData,startDate)){
             return true;
         }
@@ -27,19 +20,13 @@ public class DualMovingAveragesRSIStrategy {
             return false;
         }
     }
-
     public static void SimulateStrategy(StockData stockData,LocalDate startdate,LocalDate enddate, double budget, int leverage,double transaction_cost,double risk_trade,double take_profit,double stop_loss ){
         Trades openTrades = new Trades();
         Trades closedTrades  = new Trades();
-
         int win = 0;
         int total_trades = 0;
         int lose = 0;
         double initial_budget = budget;
-
-
-
-
         double amount = budget*(risk_trade/100)*leverage;
 
         for (LocalDate date = startdate; date.isBefore(enddate);date = date.plusDays(1)){

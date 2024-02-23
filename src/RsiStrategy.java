@@ -4,22 +4,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
-
 public class RsiStrategy {
-
     public static double CalculateRsi(StockData stockData, LocalDate startDate,int period){
-
-
         if(startDate.isBefore(LocalDate.of(2019,1,25))){
             startDate = LocalDate.of(2019,1,28);
         }
-
         LocalDate date = startDate;
         double RSI  = 0;
         double RS = 0;
         double average_gain = 0;
         double average_lose = 0;
-
 
         for( int i=0; i<period;i++){
 
