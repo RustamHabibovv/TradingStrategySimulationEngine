@@ -1,9 +1,6 @@
 
-
 import java.time.LocalDate;
-
 public class Simulation {
-
     String aaplepath = "stockdatafiles\\AAPL.csv";
      String nvdapath = "stockdatafiles\\NVDA.csv";
      String amznpath = "stockdatafiles\\AMZN.csv";
@@ -14,13 +11,7 @@ public class Simulation {
      String kopath = "stockdatafiles\\KO.csv";
      String pgpath = "stockdatafiles\\PG.csv";
      String intcpath = "stockdatafiles\\INTC.csv";
-
-
-
-     public
-
-     StockData stockdata=  new StockData();
-
+     public StockData stockdata=  new StockData();
      public Simulation(String stockname, String strategy_name,LocalDate start_date,LocalDate end_date,double budget, int leverage,double transaction_cost,double risk_trade,double take_profit,double stop_loss){
          switch(stockname){
              case "AAPL":
@@ -56,12 +47,10 @@ public class Simulation {
                  stockdata.ReadData(intcpath,stockdata.stockdata);
                  break;
 
-
          }
          switch (strategy_name){
              case "Moving Average Strategy":
                  MaStrategy.SimulateStrategy(stockdata,start_date,end_date,budget,leverage,transaction_cost,risk_trade,take_profit,stop_loss);
-
                  break;
 
              case "RSI Strategy":
@@ -79,18 +68,6 @@ public class Simulation {
              case "Dual Moving Averages + RSI Strategy":
                  DualMovingAveragesRSIStrategy.SimulateStrategy(stockdata,start_date,end_date,budget,leverage,transaction_cost,risk_trade,take_profit,stop_loss);
                  break;
-
-
-
-
          }
-
-
-
      }
-
-
-
-
-
 }

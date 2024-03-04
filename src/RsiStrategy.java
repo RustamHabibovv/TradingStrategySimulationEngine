@@ -16,24 +16,18 @@ public class RsiStrategy {
         double average_lose = 0;
 
         for( int i=0; i<period;i++){
-
             if(stockData.stockdata.containsKey(date)){
                 boolean flag = true;
-
                 double pricebefore = stockData.stockdata.get(LocalDate.of(2019,1,7)).getClose_price();
-
                 int k =1;
                 while(flag) {
-
                     if (stockData.stockdata.containsKey(date.minusDays(k))) {
                         pricebefore = stockData.stockdata.get(date.minusDays(k)).getClose_price();
                         flag = false;
                     } else {
                         k++;
                     }
-
                 }
-
                 double price = stockData.stockdata.get(date).getClose_price();
                 if(price>pricebefore){
                     average_gain+=price-pricebefore;
@@ -41,10 +35,6 @@ public class RsiStrategy {
                 else {
                     average_lose-= pricebefore-price;
                 }
-
-
-
-
             }
             else {
                 i--;
@@ -58,7 +48,6 @@ public class RsiStrategy {
         RSI = 100 - (100/(1+RS));
 
         return RSI;
-
     }
     public static boolean BuySignal(StockData stockData, LocalDate startdate){
         if(CalculateRsi(stockData,startdate,14)<=30){
@@ -76,19 +65,13 @@ public class RsiStrategy {
             return false;
         }
     }
-
     public static void SimulateStrategy(StockData stockData,LocalDate startdate,LocalDate enddate, double budget, int leverage,double transaction_cost,double risk_trade,double take_profit,double stop_loss ){
         Trades openTrades = new Trades();
         Trades closedTrades  = new Trades();
-
         int win = 0;
         int total_trades = 0;
         int lose = 0;
         double initial_budget = budget;
-
-
-
-
         double amount = budget*(risk_trade/100)*leverage;
 
         for (LocalDate date = startdate; date.isBefore(enddate);date = date.plusDays(1)){

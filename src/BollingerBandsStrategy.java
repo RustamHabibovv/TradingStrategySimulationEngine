@@ -10,6 +10,7 @@ public class BollingerBandsStrategy {
         double sum = 0;
         List<Double> prices = new ArrayList<>();
 
+
         for(int i=0;i<20;i++ ){
 
             if(stockData.stockdata.containsKey(date)){
